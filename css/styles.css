@@ -1,0 +1,138 @@
+@font-face {
+  font-family: "Oswald";
+  src: url("../fonts/Oswald/Oswald-Regular.ttf") format("truetype"), url("../fonts/Oswald/Oswald-Light.ttf"), url("../fonts/Oswald/Oswald-Bold.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Crimson Text";
+  src: url("../fonts/Crimson_Text/CrimsonText-Roman.ttf") format("truetype"), url("../fonts/Crimson_Text/CrimsonText-Italic.ttf"), url("../fonts/Crimson_Text/CrimsonText-BoldItalic.ttf"), url("../fonts/Crimson_Text/CrimsonText-Bold.ttf"), url("../fonts/Crimson_Text/CrimsonText-SemiboldItalic.ttf"), url("../fonts/Crimson_Text/CrimsonText-Semibold.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+a:hover {
+  text-decoration: none;
+}
+/*****************
+******Header******
+******************/
+.accent-bar {
+  height: 5px;
+  background-color: #28284F;
+}
+.nav-item {
+  height: 60px;
+  line-height: 60px;
+  font-family: "Oswald";
+  font-size: 26px;
+}
+.nav-item a {
+  color: #28284F;
+}
+.hr-container {
+  padding: 0;
+}
+.hr-container hr {
+  margin-top: 0px;
+}
+/*********
+***body***
+**********/
+/*used in conjunction with #holder*/
+html,
+body {
+  height: 100%;
+}
+/*holder for making footer a set height*/
+#holder {
+  min-height: 100%;
+  position: relative;
+}
+/*body container used in conjunction with #holder*/
+#body {
+  padding-bottom: 100px;
+  color: black;
+  /*index page article-previews*/
+  /*article-page article containers*/
+  /*paragraphs on any page*/
+  /*archives-page archives-section*/
+  /*archives page archives-entry*/
+  /*about page aboutme section*/
+  /*about page contact-section*/
+}
+#body .date {
+  color: #3d3d4c;
+  font-size: 18px;
+}
+#body .article-preview h1,
+#body .article-preview h2 {
+  font-family: "Oswald";
+}
+#body .article-preview h2 {
+  display: none;
+}
+#body .article-container h1,
+#body .article-container h2 {
+  display: block;
+  font-family: "Oswald";
+}
+#body p {
+  font-family: "Crimson Text";
+  font-size: 22px;
+  color: black;
+}
+#body li {
+  color: #3d3d4c;
+}
+#body .quote {
+  border-left: 3px solid #E8E8E8;
+  padding-left: 10px;
+  color: #3d3d4c;
+  font-style: italic;
+}
+#body .archives-section .year-header {
+  font-family: "Crimson Text";
+  font-size: 32px;
+  font-weight: 500;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px !important;
+}
+#body .archive-entry * {
+  display: inline-block;
+}
+#body .archive-entry a {
+  font-size: 22px;
+  font-family: "Crimson Text";
+}
+#body .aboutme-section h1 {
+  font-family: "Crimson Text";
+}
+#body .contact-section h1 {
+  font-family: "Crimson Text";
+}
+#body .contact-section a {
+  font-size: 18px;
+}
+/***********
+***footer***
+***********/
+footer {
+  height: 100px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+footer .github-link {
+  font-family: "Oswald";
+  height: 30px;
+  font-size: 22px;
+}
+footer .github-link img {
+  width: 20px;
+  height: 20px;
+}
+footer .github-link a {
+  color: #28284F;
+}

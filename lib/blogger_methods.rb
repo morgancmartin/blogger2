@@ -2,7 +2,7 @@
 module BloggerMethods
   require 'yaml'
 
-  def application_status status
+  def system_status status
     print status
     3.times do |time|
       print '.'

@@ -2,7 +2,7 @@
 module ArticleMethods
   ## Generates an article page for each post supplied in "posts" folder
   def generate_articles
-    system_status "Generating Articles"
+    system_status 'Generating Articles'
     system 'mkdir articles'
     read_posts.each { |post| generate_article post }
   end
