@@ -1,0 +1,86 @@
+<% require "yaml" %>
+<% require_relative "../lib/modules" %>
+<% @data = read_data %>
+<% @header = File.open(get_header_path(@data[:sub_file]), "r").read %>
+<% @start = @data[:start] %>
+<% @last = @data[:last] %>
+<% @posts = @data[:posts][@start..@last] %>
+<% @pagination = @data[:pagination] %>
+<% @footer = File.open(get_footer_path(@data[:sub_file]), "r").read %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Morgan</title>
+    <!-- Bootstrap -->
+    <%= @data[:stylesheetloc]%>
+    <link rel="icon" href="http://www.morganmart.in/favicon.ico?v=2" />
+    <!-- removed html5 shim for IE cuz IE needs to die-->
+  </head>
+  <body class="container-fluid">
+    <div id="holder">
+      <%= @header %>
+      <div id="body" class="row">
+        <div class="col-xs-7 col-xs-offset-3">
+          <% @posts.each do |post| %>
+            <section class="article-preview"><%=post.preview(@data[:sub_file])%></section>
+          <% end %>
+        </div>
+        <div class="col-xs-4 col-xs-offset-4">
+          <nav class="col-xs-8 col-xs-offset-2">
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" href="<%=pagination_href("previous", @data[:folder_num], @data[:indextotal])%>" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+              <li class="<%=pagination_list_item_class @data[:folder_num], 1%>">
+                <a class="page-link" href="<%=pagination_href 1, @data[:folder_num], @data[:indextotal]%>">1
+                  <%=sr_span @data[:folder_num], 1%>
+                </a>
+              </li>
+              <li class="<%=pagination_list_item_class @data[:folder_num], 2%>">
+                <a class="page-link" href="<%=pagination_href 2, @data[:folder_num], @data[:indextotal]%>">2
+                  <%=sr_span @data[:folder_num], 2%>
+                </a>
+              </li>
+              <li class="<%=pagination_list_item_class @data[:folder_num], 3%>">
+                <a class="page-link" href="<%=pagination_href 3, @data[:folder_num], @data[:indextotal]%>">3
+                  <%=sr_span @data[:folder_num], 3%>
+                </a>
+              </li>
+              <li class="<%=pagination_list_item_class @data[:folder_num], 4%>">
+                <a class="page-link" href="<%=pagination_href 4, @data[:folder_num], @data[:indextotal]%>">4
+                  <%=sr_span @data[:folder_num], 4%>
+                </a>
+              </li>
+              <li class="<%=pagination_list_item_class @data[:folder_num], 5%>">
+                <a class="page-link" href="<%=pagination_href 5, @data[:folder_num], @data[:indextotal]%>">5
+                  <%=sr_span @data[:folder_num], 5%>
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="<%=pagination_href("next", @data[:folder_num], @data[:indextotal])%>" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+        </div>
+      </div>
+      <%= @footer %>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    </div>
+  </body>
+</html>
