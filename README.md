@@ -28,6 +28,10 @@ Once you've supplied some posts and defaults, you're ready to run it. Since you 
 
 A few moments later, you should have your generated html content.
 
+If you decide to later change some information whether it be piece of default information or supplied post content, the application will automatically overwrite the old content. Running the generate file will cause the old generated files to be deleted.
+
+NOTE: When `generate` is run, it writes over any files in the `blog/` directory not included with the application. If you need to add extra files to the directory, you can add the filename to the defaults in the `lib/cleanup.rb` file or you can disable the cleanup functionality by removing the lines containg `clean_up` in the `generate` file.
+
 ## Customization
 
 If you'd like you may customize the css/less to your liking. Of particular note are the default colors in `variables.less`. These control the color scheme including the accent bar at the top of the page.
