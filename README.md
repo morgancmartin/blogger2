@@ -22,15 +22,15 @@ There is no need to add other sorts of html to the file, the rest is taken care 
 
 Note that the generated html files will be named the same as the corresponding files that you supply in the posts folder. This means that your supplied files should end with a `.html` extension.
 
-Next you should fill out your defaults in the `defaults.yml` folder. It requires things like your name and links to your social media.
+Next you should fill out your defaults in the `defaults.yml` file. It requires things like your name and links to your social media.
 
 Once you've supplied some posts and defaults, you're ready to run it. Since you should have already supplied it with execution permissions, you can run the application by calling generate like so: `./generate`
 
 A few moments later, you should have your generated html content.
 
-If you decide to later change some information whether it be piece of default information or supplied post content, the application will automatically overwrite the old content. Running the generate file will cause the old generated files to be deleted.
+If you decide to later change some information whether it be a default setting or supplied post content, the application will automatically overwrite the old content. Running the generate file will cause the old generated files to be deleted.
 
-NOTE: When `generate` is run, it writes over any files in the `blog/` directory not included with the application. If you need to add extra files to the directory, you can add the filename to the defaults in the `lib/cleanup.rb` file or you can disable the cleanup functionality by removing the lines containg `clean_up` in the `generate` file.
+NOTE: When `generate` is run, it writes over any files in the `blog/` directory not included with the application. If you need to add extra files to the directory, you can add the filename to the defaults in the `lib/cleanup.rb` file or you can disable the cleanup functionality by removing the lines containing `clean_up` in the `generate` file.
 
 ## Customization
 
