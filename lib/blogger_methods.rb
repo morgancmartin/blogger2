@@ -66,14 +66,16 @@ module BloggerMethods
   ## "blog" folder
   def sub_file_stylesheet_locs
     "<link href=\"#{bootstrap_cdn}\" rel=\"stylesheet\">
-     <link href=\"../css/styles.css\" rel=\"stylesheet\">"
+     <link href=\"../css/styles.css\" rel=\"stylesheet\">
+     <link href=\"../css/rubyhighlights.css\" rel=\"stylesheet\">"
   end
 
   ## Returns a string specifying stylesheet locations relative to
   ## the main "blog" folder
   def main_file_stylesheet_locs
     "<link href=\"#{bootstrap_cdn}\" rel=\"stylesheet\">
-     <link href=\"css/styles.css\" rel=\"stylesheet\">"
+     <link href=\"css/styles.css\" rel=\"stylesheet\">
+     <link href=\"css/rubyhighlights.css\" rel=\"stylesheet\">"
   end
 
   ## Link to bootstrap framework

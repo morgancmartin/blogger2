@@ -5,13 +5,13 @@ class Post
               :formatted_date, :contents_w_code
   def initialize(filename)
     @filename = filename
-    @file_contents = post_file_contents
+    @file_contents = replace_code_blocks(post_file_contents)
     @title = post_title
     @date = post_date
     @year = post_year
     @linked_title = link_title_to_article
     @formatted_date = format_date
-    @contents_w_code = replace_code_blocks(@file_contents)
+#    @contents_w_code = replace_code_blocks(@file_contents) ## Legacy, heh
   end
 
   def preview(sub_index)
@@ -79,10 +79,12 @@ class Post
     chars.pop(4).join('').to_i
   end
 
+  ## Replaces a <p class="code"></p> with html that works with pygment
   def replace_code_blocks(contents)
     info = find_post_content_block(contents, '<p class="code">', '</p>')
     while info
       formatted_block = pygment_code_block(info[:block])
+      formatted_block = wrap_block_in_syntax_tags(formatted_block)
       contents = contents.split("\n")
       contents[info[:front]..info[:back]] = formatted_block
       contents = contents.join("\n")
@@ -91,6 +93,12 @@ class Post
     contents
   end
 
+  ## Wraps a block in syntax tags for code highlighting
+  def wrap_block_in_syntax_tags(block)
+    "<div class=\"syntax\">" + block + '</div>'
+  end
+
+  ## Creates pygment code out of given html
   def pygment_code_block(block)
     write_data block, 'code.rb', false
     system 'pygmentize -o block.html code.rb'
